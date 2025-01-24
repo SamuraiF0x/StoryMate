@@ -1,0 +1,48 @@
+{
+	"name": "storymate",
+	"displayName": "StoryMate",
+	"description": "Automatically generate Storybook stories for React components",
+	"version": "0.0.1",
+	"publisher": "simun-kordis",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SamuraiF0x/StoryMate"
+	},
+	"engines": {
+		"vscode": "^1.85.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": {
+			"title": "Auto Story Generator",
+			"properties": {
+				"storyMate.watchDirectories": {
+					"type": "array",
+					"default": [
+						"ui/src/components"
+					],
+					"description": "Directories to watch for new files"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.85.0",
+		"@types/node": "^18.x",
+		"typescript": "^5.x"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}
