@@ -3,7 +3,7 @@
 	"displayName": "StoryMate",
 	"icon": "icon.png",
 	"description": "Automatically generate Storybook stories for React components",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"publisher": "simun-kordis",
 	"author": {
 		"name": "Šimun Kordiš"
