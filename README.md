@@ -9,11 +9,19 @@ StoryMate is a Visual Studio Code extension that automatically generates Storybo
 
 ## Configuration
 
-You can configure the directories to watch for new files by adding the following setting to your `settings.json`:
+You can configure the directories to watch for new files by adding the following settings to your `settings.json`:
+
+- storyMate.watchDirectories
+- storyMate.templatePath
+- storyMate.fileExtensions
+
+Defaults are configured as follows:
 
 ```json
 {
- "storyMate.watchDirectories": ["ui/src/components"]
+  "storyMate.watchDirectories": ["ui/src/components"]
+  "storyMate.templatePath": "apps/storybook/.storybook/storymate.template.hbs",
+  "storyMate.fileExtensions": [".tsx", ".jsx"]
 }
 ```
 
@@ -37,31 +45,31 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Button, { BUTTON_VARIANTS } from "./Button";
 
 const meta = {
- title: "Interactions/Button",
- component: Button,
- argTypes: {
-  variant: {
-   options: BUTTON_VARIANTS,
-   control: "select",
-  },
-  onPress: { action: "Pressed" },
- },
- args: {
-  children: "Default Text",
- },
+	title: "Interactions/Button",
+	component: Button,
+	argTypes: {
+		variant: {
+			options: BUTTON_VARIANTS,
+			control: "select",
+		},
+		onPress: { action: "Pressed" },
+	},
+	args: {
+		children: "Default Text",
+	},
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
- parameters: {
-  design: {
-   type: "figma",
-   url: "REPLACE_WITH_FIGMA_URL",
-   allowFullscreen: true,
-  },
- },
+	parameters: {
+		design: {
+			type: "figma",
+			url: "REPLACE_WITH_FIGMA_URL",
+			allowFullscreen: true,
+		},
+	},
 };
 ```
 

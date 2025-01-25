@@ -1,0 +1,48 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import {{componentName}}, { 
+  {{#each variants}}
+    {{#if (lookup this 'values')}}
+      {{../componentName}}_{{@key}},
+    {{/if}}
+  {{/each}}
+  {{#if propsInterfaceName}}
+    type { {{propsInterfaceName}} } from './{{../componentName}}',
+  {{/if}}
+} from './{{componentName}}';
+
+const meta: {{#if propsInterfaceName}}Meta<{{propsInterfaceName}}>{{else}}Meta<typeof {{componentName}}>{{/if}} = {
+  title: '{{dirName}}/{{componentName}}',
+  component: {{componentName}},
+  argTypes: {
+    {{#each variants}}
+      {{#unless (eq @key 'defaultVariants')}}
+        {{@key}}: {
+          options: {{../componentName}}_{{@key}},
+          control: 'select'
+        },
+      {{/unless}}
+    {{/each}}
+    {{#if isInteractionsComponent}}
+      onPress: { action: 'Pressed' },
+    {{/if}}
+  },
+  args: {
+    children: 'Default Text',
+    {{#each variants.defaultVariants}}
+      {{@key}}: '{{this}}',
+    {{/each}}
+  },
+} satisfies {{#if propsInterfaceName}}Meta<{{propsInterfaceName}}>{{else}}Meta<typeof {{componentName}}>{{/if}};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Basic: Story = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'REPLACE_WITH_FIGMA_URL',
+      allowFullscreen: true,
+    },
+  },
+};

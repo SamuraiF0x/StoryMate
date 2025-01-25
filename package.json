@@ -3,7 +3,7 @@
 	"displayName": "StoryMate",
 	"icon": "icon.png",
 	"description": "Automatically generate Storybook stories for React components",
-	"version": "0.2.3",
+	"version": "0.3.0",
 	"publisher": "simun-kordis",
 	"author": {
 		"name": "Šimun Kordiš"
@@ -43,9 +43,13 @@
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./"
 	},
+	"dependencies": {
+		"handlebars": "^4.7.8"
+	},
 	"devDependencies": {
-		"@types/vscode": "^1.85.0",
 		"@types/node": "^18.x",
+		"@types/vscode": "^1.85.0",
+		"@types/handlebars": "^4.1.0",
 		"typescript": "^5.x"
 	},
 	"keywords": []
