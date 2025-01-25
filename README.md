@@ -19,8 +19,8 @@ You can configure the directories to watch for new files by adding the following
 
 ## Usage
 
-Create a new React component file (e.g., Button.tsx) in one of the configured directories.
-The extension will automatically generate a companion .stories.tsx file (e.g., Button.stories.tsx) in the same directory.
+Create a new React component file (e.g., `Button.tsx`) in one of the configured directories.
+The extension will automatically generate a companion `.stories.tsx` file (e.g., `Button.stories.tsx`) in the same directory.
 
 > [!TIP]
 > Use vscode file nesting for nice organization without folders.
