@@ -17,13 +17,16 @@ You can configure the directories to watch for new files by adding the following
 }
 ```
 
+> [!TIP]
+> Use vscode file nesting for nice organization without folders.
+
 ## Usage
 
 Create a new React component file (e.g., `Button.tsx`) in one of the configured directories.
 The extension will automatically generate a companion `.stories.tsx` file (e.g., `Button.stories.tsx`) in the same directory.
 
-> [!TIP]
-> Use vscode file nesting for nice organization without folders.
+> [!NOTE]  
+> It is expected that [addon-designs](https://storybookjs.github.io/addon-designs/?path=/docs/docs-quick-start--docs) is installed and configured in Storybook
 
 ### Example
 
