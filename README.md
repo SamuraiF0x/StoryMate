@@ -13,7 +13,7 @@ You can configure the directories to watch for new files by adding the following
 
 ```json
 {
-	"storyMate.watchDirectories": ["ui/src/components"]
+ "storyMate.watchDirectories": ["ui/src/components"]
 }
 ```
 
@@ -21,6 +21,9 @@ You can configure the directories to watch for new files by adding the following
 
 Create a new React component file (e.g., Button.tsx) in one of the configured directories.
 The extension will automatically generate a companion .stories.tsx file (e.g., Button.stories.tsx) in the same directory.
+
+> [!TIP]
+> Use vscode file nesting for nice organization without folders.
 
 ### Example
 
@@ -31,31 +34,31 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Button, { BUTTON_VARIANTS } from "./Button";
 
 const meta = {
-	title: "Interactions/Button",
-	component: Button,
-	argTypes: {
-		variant: {
-			options: BUTTON_VARIANTS,
-			control: "select",
-		},
-		onPress: { action: "Pressed" },
-	},
-	args: {
-		children: "Default Text",
-	},
+ title: "Interactions/Button",
+ component: Button,
+ argTypes: {
+  variant: {
+   options: BUTTON_VARIANTS,
+   control: "select",
+  },
+  onPress: { action: "Pressed" },
+ },
+ args: {
+  children: "Default Text",
+ },
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
-	parameters: {
-		design: {
-			type: "figma",
-			url: "REPLACE_WITH_FIGMA_URL",
-			allowFullscreen: true,
-		},
-	},
+ parameters: {
+  design: {
+   type: "figma",
+   url: "REPLACE_WITH_FIGMA_URL",
+   allowFullscreen: true,
+  },
+ },
 };
 ```
 
