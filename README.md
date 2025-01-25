@@ -27,7 +27,7 @@ The extension will automatically generate a companion `.stories.tsx` file (e.g.,
 
 ### Example
 
-Given a component file `Button.tsx` in the `ui/src/interactions` directory, the extension will generate a `Button.stories.tsx` file with the following content:
+Given a component file `Button.tsx` in the `ui/src/components/interactions` directory, the extension will generate a `Button.stories.tsx` file with the following content:
 
 ```tsx
 import type { Meta, StoryObj } from "@storybook/react";
