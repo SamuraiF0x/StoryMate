@@ -1,35 +1,28 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import {{componentName}}, { 
-  {{#each variants}}
-    {{#if (lookup this 'values')}}
-      {{../componentName}}_{{@key}},
-    {{/if}}
-  {{/each}}
-  {{#if propsInterfaceName}}
-    type { {{propsInterfaceName}} } from './{{../componentName}}',
-  {{/if}}
-} from './{{componentName}}';
+
+{{#if propsInterfaceName}}
+import type { {{propsInterfaceName}} } from './{{componentName}}';
+{{/if}}
+import {{componentName}}{{#if variants.length}}, { {{#each variants}}{{this.value}}{{#unless @last}}, {{/unless}}{{/each}} }{{/if}} from './{{componentName}}';
 
 const meta: {{#if propsInterfaceName}}Meta<{{propsInterfaceName}}>{{else}}Meta<typeof {{componentName}}>{{/if}} = {
   title: '{{dirName}}/{{componentName}}',
   component: {{componentName}},
   argTypes: {
     {{#each variants}}
-      {{#unless (eq @key 'defaultVariants')}}
-        {{@key}}: {
-          options: {{../componentName}}_{{@key}},
-          control: 'select'
-        },
-      {{/unless}}
+    {{this.key}}: {
+      options: {{this.value}},
+      control: 'select',
+    },
     {{/each}}
     {{#if isInteractionsComponent}}
-      onPress: { action: 'Pressed' },
+    onPress: { action: 'Pressed' },
     {{/if}}
   },
   args: {
     children: 'Default Text',
-    {{#each variants.defaultVariants}}
-      {{@key}}: '{{this}}',
+    {{#each defaultVariants}}
+    {{this.key}}: '{{this.value}}',
     {{/each}}
   },
 } satisfies {{#if propsInterfaceName}}Meta<{{propsInterfaceName}}>{{else}}Meta<typeof {{componentName}}>{{/if}};
@@ -41,7 +34,7 @@ export const Basic: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'REPLACE_WITH_FIGMA_URL',
+      url: '{{#if figmaUrl}}{{figmaUrl}}{{else}}REPLACE_WITH_FIGMA_URL{{/if}}',
       allowFullscreen: true,
     },
   },

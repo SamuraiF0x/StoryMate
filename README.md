@@ -19,9 +19,9 @@ Defaults are configured as follows:
 
 ```json
 {
-  "storyMate.watchDirectories": ["ui/src/components"]
-  "storyMate.templatePath": "apps/storybook/.storybook/storymate.template.hbs",
-  "storyMate.fileExtensions": [".tsx", ".jsx"]
+ "storyMate.watchDirectories": ["ui/src/components"],
+ "storyMate.templatePath": "apps/storybook/.storybook/storyTemplate.hbs",
+ "storyMate.fileExtensions": [".tsx", ".jsx"]
 }
 ```
 
@@ -45,31 +45,31 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Button, { BUTTON_VARIANTS } from "./Button";
 
 const meta = {
-	title: "Interactions/Button",
-	component: Button,
-	argTypes: {
-		variant: {
-			options: BUTTON_VARIANTS,
-			control: "select",
-		},
-		onPress: { action: "Pressed" },
-	},
-	args: {
-		children: "Default Text",
-	},
+ title: "Interactions/Button",
+ component: Button,
+ argTypes: {
+  variant: {
+   options: BUTTON_VARIANTS,
+   control: "select",
+  },
+  onPress: { action: "Pressed" },
+ },
+ args: {
+  children: "Default Text",
+ },
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
-	parameters: {
-		design: {
-			type: "figma",
-			url: "REPLACE_WITH_FIGMA_URL",
-			allowFullscreen: true,
-		},
-	},
+ parameters: {
+  design: {
+   type: "figma",
+   url: "REPLACE_WITH_FIGMA_URL",
+   allowFullscreen: true,
+  },
+ },
 };
 ```
 
@@ -95,10 +95,19 @@ export const BUTTON_VARIANTS: ButtonVariant[] = ["primary", "secondary", "tertia
 
 Contributions are welcome! Please open an issue or submit a pull request.
 
-### Installation
+## TODO
 
-1. Clone this repository.
-2. Open the project in Visual Studio Code.
-3. Run `npm install` to install the dependencies.
-4. Run `npm run compile` to compile the TypeScript code.
-5. Press `F5` to start debugging the extension.
+- [x] auto-edit story on save
+  - [x] read `variants` and `defaultVariants` (and props from Component.tsx ?)
+  - [x] add `variants` and `defaultVariants` to story
+  - [ ] make sure the current story figma url isn't overwritten
+  - [ ] make sure the current story args children string isn't overwritten
+  - [ ] add folder-based story title
+- [ ] update README
+  - [ ] add available handlebars
+- [ ] [bundle extension](https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
+- [ ] add import `defaultStoryTemplate.hbs` to `extension.ts`
+- [ ] check if `settings.json` configuration works
+- [ ] check if custom template can be read from custom path
+- [ ] move functions to separate files (cleaner code)
+- [ ] make sure the current story isn't overwritten (update only `argTypes` and `args`)

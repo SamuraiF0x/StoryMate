@@ -3,7 +3,7 @@
 	"displayName": "StoryMate",
 	"icon": "icon.png",
 	"description": "Automatically generate Storybook stories for React components",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"publisher": "simun-kordis",
 	"author": {
 		"name": "Šimun Kordiš"
@@ -31,9 +31,21 @@
 				"storyMate.watchDirectories": {
 					"type": "array",
 					"default": [
-						"ui/src/components"
+						"ui/src/components/**/*"
 					],
 					"description": "Directories to watch for new files"
+				},
+				"storyMate.templatePath": {
+					"type": "string",
+					"default": "",
+					"description": "Path to the Storybook template file"
+				},
+				"storyMate.fileExtensions": {
+					"type": "array",
+					"default": [
+						".tsx"
+					],
+					"description": "Which file types to look for when scanning components"
 				}
 			}
 		}
